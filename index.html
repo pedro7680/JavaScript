@@ -23,6 +23,21 @@
 </head>
 
 <body>
-    <p>some text</p>
+   Enter Password : <input type="password" name="password">
+   <br>
+   <span id="errorMessage" class="errorText" hidden>
+       Please fix the following errors:</span>
+
+       <ul>
+           <li id="needsNumber" class="errorText" hidden>
+               The Password must contain a number</li>
+
+               <li id="atleast10Chars" class="errorText" hidden>
+                   The password must be at least 10 charachters longs</li>
+       </ul>
+       <span id="successMessage" hidden>The password is ok!</span>
+       <p>
+           <button name="submit">Validate Password</button>
+       </p>
 </body>
 </html>
