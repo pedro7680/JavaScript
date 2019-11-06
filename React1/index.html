@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>React Example 1</title>
+
+<style>
+h1{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+h2{
+    text-align: left;
+}
+</style>
+
+
+</head>
+<body>
+    <h1>This is some basic code for a like button,</h1>
+    <h2>Using React.</h2>
+    <div id="like_button_container"></div>
+    <p>this is some random text</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt error enim laboriosam quibusdam, ipsa nulla eaque amet.</p>
+    <div id="counter_button_container"></div>
+   
+
+<!-- Load React. -->
+  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+
+  <!-- Load our React component. -->
+  <script src="like_button.js"></script>
+  <script src="counter.js"></script>
+</body>
+</html>

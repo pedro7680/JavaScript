@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+<div>
+    The current date/time is <span id="dateTime"> </span>
+</div>
+<div>You have accessed this page <span id="report"></span>
+    Your last visit was <span id="lastVisitDate"></span>
+</div>
+<div>
+<button id="clickMe">Click me</button>
+<p>You've clicked the button <span id="numClicks">0 times</span>.</p>
+</div>
+
+
+<script>
+    var dateTimeField = document.getElementById('dateTime');
+    dateTimeField.innerHTML = new Date();
+
+    var timesVisited =0;
+    var lastVisitDate = 'never';
+
+    if (localStorage.lastVisit){
+        var lastVisit = JSON.parse(localStorage.lastVisit);
+        timesVisited = lastVisit.numVisits;
+        lastVisitDate = lastVisitDate.date;
+    }
+
+    document.getElementById('lastVisitDate').innerHTML = lastVisitDate;
+
+    timesVisited++;
+    document.getElementById('report').innerHTML = timesVisited;
+
+    var myLastVisit = {}
+    myLastVisit.date = new Date();
+    myLastVisit.numVisits = timesVisited;
+    localStorage.lastVisit = JSON.stringify(myLastVisit);
+
+// click me code
+var clicks =0;
+
+function clickHandler(){
+    clicks++;
+    var numClicksSpan = document.getElementById('numClicks');
+    if(clicks ==1)
+    numClicksSpan.innerHTML ='once';
+    else
+    numClicksSpan.innerHTML = clicks + ' times';
+}
+var button = document.getElementById('clickMe');
+button.addEventListener('click', clickHandler);
+
+
+
+</script>
+
+</body>
+</html>

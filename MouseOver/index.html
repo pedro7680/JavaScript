@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="highlight">
+        <li>Dog</li>
+        <li>Cat</li>
+        <li>Elephant</li>
+        <li>Bear</li>
+    </ul>
+
+    <ul>
+        <li>Canary</li>
+        <li>Eagle</li>
+    </ul>
+
+    <script>
+    $("ul.highlight").find("li").on({
+        mouseenter: function(){
+    $(this).css('color', 'red');
+    $(this).css('font-size', '120%');
+    },
+    
+    mouseleave: function(){
+        $(this).css('color', 'black'),
+        $(this).css('font-size', '100%');
+    },
+    click: function(){
+        $(this).css('background-color', 'yellow');
+    }
+    });
+    </script>
+
+</body>
+</html>

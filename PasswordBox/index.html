@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+<!-- css on the page-->
+<style>
+.errorText{
+    color:red;
+}
+.errorBox{
+    border:2px solid red;
+}
+.goodBox{
+    border:20px solid green;
+}
+.goodText{
+    color:green;
+}
+</style>
+</head>
+
+<body>
+   Enter Password : <input type="password" name="password">
+   <br>
+   <span id="errorMessage" class="errorText" hidden>
+       Please fix the following errors:</span>
+
+       <ul>
+           <li id="needsNumber" class="errorText" hidden>
+               The Password must contain a number</li>
+
+               <li id="atleast10Chars" class="errorText" hidden>
+                   The password must be at least 10 charachters longs</li>
+       </ul>
+       <span id="successMessage" class="goodText" hidden>The password is ok!</span>
+       <p>
+           <button name="submit">Validate Password</button>
+       </p>
+
+       <script>
+           $("button[name='submit']").click(function()
+           {
+               var passwordField = $("input[name='password']");
+               var password = passwordField.val();
+               var isOkay = true;
+               if (password.lenth <10)
+               {
+                   isOkay = false;
+                   $('#atLeast10Chars').show();
+               }
+               if(/\d/.test(password) == false)
+               {
+                   isOkay = false;
+                   $('#needsNumber').show();
+               }
+               if(isOkay == false)
+               {
+                   $('#successMessage').hide();
+                   $('#errorMessage').show();
+                passwordField.removeClass("goodBox").addClass("errorBox");
+                }
+                else
+                {
+                    $('.errorText').hide();
+                    $('#successMessage').show();
+                    passwordField.removeClass("errorBox").addClass("goodBox");
+                }
+                return false;
+           });
+    </script>
+</body>
+
+</html>

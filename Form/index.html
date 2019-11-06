@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="jquery.js"></script>
+</head>
+<body>
+    <form>
+        <select name="choosen">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+
+        <p>
+            <input type="radio" name="species" value="dog">Dog
+            <input type="radio" name="species" value="cat">Cat
+            <input type="radio" name="species" value="bird">Bird
+        </p>
+        <input type="checkbox"  value="happy">Happy
+        <input type="checkbox" value="cute">cute
+        <input type="checkbox" value="smart">Smart
+
+    </form>
+
+    <p>
+        Id like to buy a new <span id="featureSpan"></span>
+        <span id="genderSpan"></span> <span id="speciesSpan">animal</span>.
+    </p>
+
+<script>
+    // handle the select box
+    $("select[name='choose']").change(function()
+    {
+        $('#genderSpan').html($(this).val());
+    });
+    // select input elements that have type radio
+    $("input:radio[name='species']").change(function()
+    {
+        if ($(this).prop('checked')){
+            $('#species').html($(this).val());
+        }
+    });
+
+    var allChecked =[];
+
+    $('input:checkbox').change(function(){
+        var value = $(this).val();
+        if ($(this).prop('checked')){
+            allChecked.push(value);
+        }
+        else{
+            var index = allChecked.indexOf(value);
+            if(index != -1)
+            allChecked.splice(index, 1);
+        }
+        $('#featureSpan').html('');
+        for (var i=0; i< allChecked.length;i++)
+        {
+            $('#featureSpan').append(allChecked[i]);
+            if(i<allChecked.length -1)
+            $('#featureSpan').append(', ');
+            else
+            $('#featureSpan').append(' ');
+        }
+    });
+
+
+</script>
+
+</body>
+</html>
